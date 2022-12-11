@@ -55,9 +55,15 @@ const OrderDetail = () => {
                       />
                     </td>
                     <td>{item.book.name}</td>
-                    <td width="15%">{item.book.price}</td>
+                    <td width="15%">{item.book.price.toLocaleString('it-IT',{
+          style:"currency",
+          currency:"VND"
+        })}</td>
                     <td>{item.quantity}</td>
-                    <td>{item.book.price * item.quantity}</td>
+                    <td>{(item.book.price * item.quantity).toLocaleString('it-IT',{
+          style:"currency",
+          currency:"VND"
+        })}</td>
                   </tr>
                 );
               })}

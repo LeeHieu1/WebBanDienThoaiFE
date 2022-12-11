@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Switch } from "react-router-dom";
+import { APP_BASE_URL } from './configs/constants';
 
 // import MasterLayout from './layouts/admin/MasterLayout';
 import AdminPrivateRoute from "./AdminPrivateRoute";
@@ -8,7 +9,7 @@ import PublicRoute from "./PublicRoute";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-axios.defaults.baseURL = "http://localhost:8082/";
+axios.defaults.baseURL = APP_BASE_URL;
 axios.defaults.headers.post["Content-Type"] = "application/json";
 axios.defaults.headers.post["Accept"] = "application/json";
 

@@ -38,9 +38,9 @@ function Login() {
         .then((res) => {
           console.log(res);
           if (res.status === 200) {
-            localStorage.setItem("auth_token", res.data.token);
-            localStorage.setItem("auth_name", res.data.username);
-            if (res.data.roles[0].authority === "ROLE_ADMIN") {
+            localStorage.setItem("auth_token", res.data.data.token);
+            localStorage.setItem("auth_name", res.data.data.username);
+            if (res.data.data.roles[0].authority === "ROLE_ADMIN") {
               history.push("/admin/dashboard");
             } else {
               history.push("/");

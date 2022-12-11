@@ -59,7 +59,10 @@ const Order = () => {
                     </td>
                     <td>{item.createdDate} </td>
                     <td>{item.paymentMethod}</td>
-                    <td width="15%">{item.totalPrice} đ</td>
+                    <td width="15%">{item.totalPrice.toLocaleString('it-IT',{
+          style:"currency",
+          currency:"VND"
+        })}</td>
                     <td> {item.status === 0 ? "PENDDING" : "DONE"}</td>
                   </tr>
                 );

@@ -35,7 +35,10 @@ const SingleBook = ({ book }) => {
         <Card.Title>
           <Link to={"/books/" + book.id}> {book.name}</Link>
         </Card.Title>
-        <Card.Text>Giá: {book.price} VNĐ</Card.Text>
+        <Card.Text>Giá: {book.price.toLocaleString('it-IT',{
+          style:"currency",
+          currency:"VND"
+        })} </Card.Text>
 
         <Button variant="primary" onClick={onAddToCartClick}>
           Thêm vào giỏ hàng

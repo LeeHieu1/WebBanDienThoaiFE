@@ -175,9 +175,15 @@ function Checkout() {
                   return (
                     <tr key={idx}>
                       <td>{item.book.name}</td>
-                      <td>{item.book.price}</td>
+                      <td>{item.book.price.toLocaleString('it-IT',{
+          style:"currency",
+          currency:"VND"
+        })}</td>
                       <td>{item.quantity}</td>
-                      <td>{item.book.price * item.quantity}</td>
+                      <td>{(item.book.price * item.quantity).toLocaleString('it-IT',{
+          style:"currency",
+          currency:"VND"
+        })}</td>
                     </tr>
                   );
                 })}
@@ -186,7 +192,10 @@ function Checkout() {
                     Grand Total
                   </td>
                   <td colSpan="2" className="text-end fw-bold">
-                    {totalCartPrice}
+                    {totalCartPrice.toLocaleString('it-IT',{
+          style:"currency",
+          currency:"VND"
+        })}
                   </td>
                 </tr>
               </tbody>

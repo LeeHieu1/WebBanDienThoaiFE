@@ -119,7 +119,10 @@ function Cart() {
                     </td>
                     <td>{item.book.name}</td>
                     <td width="15%" >
-                      {item.book.price}
+                      {item.book.price.toLocaleString('it-IT',{
+          style:"currency",
+          currency:"VND"
+        })}
                     </td>
                     <td width="15%">
                       <div className="input-group">
@@ -143,7 +146,10 @@ function Cart() {
                       </div>
                     </td>
                     <td width="15%" >
-                      {item.book.price * item.quantity}
+                      {(item.book.price * item.quantity).toLocaleString('it-IT',{
+          style:"currency",
+          currency:"VND"
+        })}
                     </td>
                     <td width="10%">
                       <button
@@ -166,11 +172,17 @@ function Cart() {
             <div className="card card-body mt-3">
               <h4>
                 Sub Total:
-                <span className="float-end">{totalCartPrice}</span>
+                <span className="float-end">{totalCartPrice.toLocaleString('it-IT',{
+          style:"currency",
+          currency:"VND"
+        })}</span>
               </h4>
               <h4>
                 Grand Total:
-                <span className="float-end">{totalCartPrice}</span>
+                <span className="float-end">{totalCartPrice.toLocaleString('it-IT',{
+          style:"currency",
+          currency:"VND"
+        })}</span>
               </h4>
               <hr />
               <Link to="/checkout" className="btn btn-primary">

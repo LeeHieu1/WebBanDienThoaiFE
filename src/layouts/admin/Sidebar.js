@@ -6,45 +6,56 @@ const Sidebar = () => {
         <nav className="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
             <div className="sb-sidenav-menu">
                 <div className="nav">
-                    <div className="sb-sidenav-menu-heading">Core</div>
+                    {/* <div className="sb-sidenav-menu-heading">Core</div>
                     <Link className="nav-link" to="/admin/dashboard">
                         <div className="sb-nav-link-icon"><i className="fas fa-tachometer-alt"></i></div>
                         Dashboard
+                    </Link> */}
+                    <Link className="nav-link collapsed" to="#" data-bs-toggle="collapse" data-bs-target="#collapseCategory" aria-expanded="false" aria-controls="collapseProduct">
+                        <div className="sb-nav-link-icon"><i className="fas fa-columns"></i></div>
+                        Thể loại
+                        <div className="sb-sidenav-collapse-arrow"><i className="fas fa-angle-down"></i></div>
                     </Link>
-                    <Link className="nav-link" to="/admin/add-category">
+                    <div className="collapse" id="collapseCategory" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                        <nav className="sb-sidenav-menu-nested nav">
+                        <Link className="nav-link" to="/admin/add-category">Thêm thể loại</Link>
+                        <Link className="nav-link" to="/admin/view-category">Quản lý thể loại</Link>
+                        </nav>
+                    </div>
+                    {/* <Link className="nav-link" to="/admin/add-category">
                         <div className="sb-nav-link-icon"><i className="fas fa-tachometer-alt"></i></div>
-                        Add Category
+                        Thêm thể loại
                     </Link>
                     <Link className="nav-link" to="/admin/view-category">
                         <div className="sb-nav-link-icon"><i className="fas fa-tachometer-alt"></i></div>
-                        View Category
-                    </Link>
+                        Thể loại
+                    </Link> */}
 
 
                     <Link className="nav-link collapsed" to="#" data-bs-toggle="collapse" data-bs-target="#collapseProduct" aria-expanded="false" aria-controls="collapseProduct">
                         <div className="sb-nav-link-icon"><i className="fas fa-columns"></i></div>
-                        Products
+                        Sách
                         <div className="sb-sidenav-collapse-arrow"><i className="fas fa-angle-down"></i></div>
                     </Link>
                     <div className="collapse" id="collapseProduct" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                         <nav className="sb-sidenav-menu-nested nav">
-                            <Link className="nav-link" to="/admin/add-product">Add Product</Link>
-                            <Link className="nav-link" to="/admin/view-product">View Product</Link>
+                            <Link className="nav-link" to="/admin/add-product">Thêm sách</Link>
+                            <Link className="nav-link" to="/admin/view-product">Quản lý sách</Link>
                         </nav>
                     </div>
 
 
                     <Link className="nav-link" to="/admin/profile">
                         <div className="sb-nav-link-icon"><i className="fas fa-tachometer-alt"></i></div>
-                        Profile
+                        Quản lý tài khoản
                     </Link>
 
                     <Link className="nav-link" to="/admin/orders">
                         <div className="sb-nav-link-icon"><i className="fas fa-tachometer-alt"></i></div>
-                        Orders
+                        Quản lý đơn hàng
                     </Link>
 
-                    <div className="sb-sidenav-menu-heading">Interface</div>
+                    {/* <div className="sb-sidenav-menu-heading">Interface</div>
                     <Link className="nav-link collapsed" to="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                         <div className="sb-nav-link-icon"><i className="fas fa-columns"></i></div>
                         Layouts
@@ -55,8 +66,8 @@ const Sidebar = () => {
                             <Link className="nav-link" to="layout-static.html">Static Navigation</Link>
                             <Link className="nav-link" to="layout-sidenav-light.html">Light Sidenav</Link>
                         </nav>
-                    </div>
-                    <Link className="nav-link collapsed" to="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                    </div> */}
+                    {/* <Link className="nav-link collapsed" to="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
                         <div className="sb-nav-link-icon"><i className="fas fa-book-open"></i></div>
                         Pages
                         <div className="sb-sidenav-collapse-arrow"><i className="fas fa-angle-down"></i></div>
@@ -75,8 +86,8 @@ const Sidebar = () => {
                                 </nav>
                             </div>
                         </nav>
-                    </div>
-                    <div className="sb-sidenav-menu-heading">Addons</div>
+                    </div> */}
+                    {/* <div className="sb-sidenav-menu-heading">Addons</div>
                     <Link className="nav-link" to="charts.html">
                         <div className="sb-nav-link-icon"><i className="fas fa-chart-area"></i></div>
                         Charts
@@ -84,7 +95,7 @@ const Sidebar = () => {
                     <Link className="nav-link" to="tables.html">
                         <div className="sb-nav-link-icon"><i className="fas fa-table"></i></div>
                         Tables
-                    </Link>
+                    </Link> */}
                 </div>
             </div>
         

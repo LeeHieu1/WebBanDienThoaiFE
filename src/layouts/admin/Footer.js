@@ -7,7 +7,7 @@ const Footer = () => {
         className="section footer-classic context-dark bg-image"
       >
         <div class="container">
-          <div class="row row-30">
+          {/* <div class="row row-30">
             <div class="col-md-4 col-xl-5">
               <div class="pr-xl-4">
                 <p>
@@ -65,7 +65,7 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
-          </div>
+          </div> */}
         </div>
         <div class="row no-gutters social-container">
           <div class="col">
