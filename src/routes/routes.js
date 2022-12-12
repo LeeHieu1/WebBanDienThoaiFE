@@ -7,6 +7,7 @@ import AddProduct from '../components/admin/product/AddProduct';
 import ViewProduct from '../components/admin/product/ViewProduct';
 import EditProduct from '../components/admin/product/EditProduct';
 import Order from '../components/admin/order/Order';
+import OrderDetail from '../components/admin/order/OrderDetail';
 
 
 const routes = [
@@ -20,6 +21,8 @@ const routes = [
     { path: '/admin/edit-product/:id', exact: true, name: 'EditProduct', component: EditProduct },
     { path: '/admin/profile', exact: true, name: 'Profile', component: Profile },
     { path: '/admin/orders', exact: true, name: 'Order', component: Order },
+    { path: '/admin/order/:id', exact: true, name: 'OrderDetail', component: OrderDetail },
+
 ];
 
 export default routes;

@@ -1,0 +1,13 @@
+.text-format{
+    vertical-align: middle;
+}
+
+.center-format{
+    text-align: center;
+    vertical-align: middle;
+}
+
+.text-right{
+    text-align: right;
+    vertical-align: middle;
+}

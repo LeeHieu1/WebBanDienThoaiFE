@@ -108,7 +108,7 @@ const BookDetail = () => {
             ))}
             {/* <p>{bookState.book.description}</p> */}
             <div>
-              <strong>Giá:</strong> {bookState.book.price} đ
+              <strong>Giá:</strong> {bookState.book.price.toLocaleString('it-IT',{ style:"currency", currency:"VND" })}
             </div>
             <div>
               <div className="line-quantity">

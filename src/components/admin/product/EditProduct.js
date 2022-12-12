@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import swal from 'sweetalert';
+import { numberFormat } from '../../../configs/constants';
 
 function EditProduct(props) {
     const history = useHistory();
@@ -11,7 +12,7 @@ function EditProduct(props) {
 
     });
     const [pricture, setPicture] = useState([]);
-    const [errorlist, setError] = useState([]);
+    // const [errorlist, setError] = useState([]);
     const [loading, setLoading] = useState(true);
 
     const handleInput = (e) => {
@@ -32,7 +33,7 @@ function EditProduct(props) {
         });
 
         const book_id = props.match.params.id
-        axios.get(`/api/book/${book_id}`).then(res => {
+        axios.get(`/api/admin/book/${book_id}`).then(res => {
             if (res.data.success === true) {
                 setBook(res.data.data);
             }
@@ -63,19 +64,9 @@ function EditProduct(props) {
         axios.put(`/api/admin/update_book/${book_id}`, formData).then(res => {
             if (res.data.success === true) {
                 swal("Success", res.data.message, "success");
-                setError([]);
+                //setError([]);
                 history.push('/admin/view-product');
             }
-            // else if(res.data.status === 422)
-            // {
-            //     swal("All Fields are mandetory","","error");
-            //     setError(res.data.errors);
-            // }
-            // else if(res.data.status === 404)
-            // {
-            //     swal("Error",res.data.message,"error");
-            //     history.push('/admin/view-product');
-            // }
         });
 
     }
@@ -109,19 +100,19 @@ function EditProduct(props) {
                             </div>
                             <div className="form-group mb-3">
                                 <label>Tên sách</label>
-                                <input type="text" name="name" onChange={handleInput} value={bookInput.name} className="form-control" />
+                                <input type="text" name="name" onChange={handleInput} value={bookInput.name} className="form-control" required/>
                             </div>
                             <div className="form-group mb-3">
                                 <label>Mô tả</label>
-                                <textarea name="description" onChange={handleInput} value={bookInput.description} className="form-control"></textarea>
+                                <textarea name="description" onChange={handleInput} value={bookInput.description} className="form-control" required></textarea>
                             </div>
                             <div className="form-group mb-3">
                                 <label>Tác giả</label>
-                                <input name="authorname" type="text" onChange={handleInput} value={bookInput.authorname} className="form-control"></input>
+                                <input name="authorname" type="text" onChange={handleInput} value={bookInput.authorname} className="form-control" required></input>
                             </div>
                             <div className="form-group mb-3">
-                                <label>Giá</label>
-                                <input name="price" type="number" onChange={handleInput} value={bookInput.price} className="form-control"></input>
+                                <label>Giá (Định dạng: {numberFormat(bookInput.price)})</label>
+                                <input name="price" type="number" onChange={handleInput} value={bookInput.price} className="form-control" required></input>
                             </div>
                             <div className="form-group mb-3">
                                 <label>Hình ảnh</label>

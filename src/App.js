@@ -1,7 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Switch } from "react-router-dom";
 import { APP_BASE_URL } from './configs/constants';
-
 // import MasterLayout from './layouts/admin/MasterLayout';
 import AdminPrivateRoute from "./AdminPrivateRoute";
 import PublicRoute from "./PublicRoute";

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { numberFormat } from '../../../configs/constants';
 
 function Order() {
     const [loading, setLoading] = useState(true);
@@ -34,18 +35,28 @@ function Order() {
 
             return (
                 <tr key={item.id}>
-                    <td>{item.id}</td>
-                    <td>{item.username}</td>
-                    <td>{item.name}</td>
-                    <td>{item.phone}</td>
-                    <td>{item.address}</td>
-                    <td>{item.date}</td>
-                    <td>{item.total_price}</td>
-                    <td>{item.status}</td>
-                    <td>
-                        <Link to={`view-order/${item.id}`} className="btn btn-success btn-sm">View</Link>
-                    </td>
+                    <td className='center-format'><Link to={`order/${item.id}`} className="btn btn-success btn-sm">{item.id}</Link></td>
+                    <td className='text-format'>{item.username}</td>
+                    <td className='text-format'>{item.name}</td>
+                    <td className='text-format'>{item.phone}</td>
+                    <td className='text-format'>{item.address}</td>
+                    <td className='center-format'>{item.date}</td>
+                    <td className='center-format'>{numberFormat(item.total_price)}</td>
+                    <td className='text-format'>{item.status}</td>
                 </tr>
+                // <tr key={item.id}>
+                //     <td>{item.id}</td>
+                //     <td>{item.username}</td>
+                //     <td>{item.name}</td>
+                //     <td>{item.phone}</td>
+                //     <td>{item.address}</td>
+                //     <td>{item.date}</td>
+                //     <td>{item.total_price}</td>
+                //     <td>{item.status}</td>
+                //     <td>
+                //         <Link to={`view-order/${item.id}`} className="btn btn-success btn-sm">View</Link>
+                //     </td>
+                // </tr>
             )
         });
     }
@@ -60,7 +71,17 @@ function Order() {
                     <div className="table-responsive">
                         <table className="table table-bordered table-striped">
                             <thead>
-                                <tr>
+                                <tr style={{backgroundColor: "black", color: "white"}}>
+                                    <th className='center-format' style={{width: "6%"}}>ID</th>
+                                    <th style={{width: "15%"}}>Tài khoản</th>
+                                    <th style={{width: "15%"}}>Người nhận</th>
+                                    <th className='center-format' style={{width: "9%"}}>Số điện thoại</th>
+                                    <th>Địa chỉ</th>
+                                    <th className='center-format' style={{width: "8%"}}>Ngày đặt</th>
+                                    <th className='center-format' style={{width: "11%"}}>Tổng tiền</th>
+                                    <th style={{width: "11%"}}>Trạng thái</th>
+                                </tr>
+                                {/* <tr>
                                     <th>ID</th>
                                     <th>Tài khoản</th>
                                     <th>Người nhận</th>
@@ -70,7 +91,7 @@ function Order() {
                                     <th>Tổng tiền</th>
                                     <th>Trạng thái</th>
                                     <th>Chi tiết đơn hàng</th>
-                                </tr>
+                                </tr> */}
                             </thead>
                             <tbody>
                                 {display_orders}

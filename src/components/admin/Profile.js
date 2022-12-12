@@ -1,56 +1,74 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import swal from 'sweetalert';
 
 function Profile() {
     const [loading, setLoading] = useState(true);
     const [accounts, setAccounts] = useState([]);
+    const [isUpdate, setIsUpdate] = useState(false);
 
     useEffect(() => {
-
-        let isMounted = true;
         document.title = "Tài khoản";
 
         axios.get(`/api/admin/accounts`).then(res => {
-            if (isMounted) {
-                if (res.data.success === true) {
-                    setAccounts(res.data.datas);
-                    setLoading(false);
-                }
+            if (res.data.success === true) {
+                setAccounts(res.data.datas);
+                setLoading(false);
             }
         });
-        return () => {
-            isMounted = false
-        };
-    }, []);
+        
+    }, [isUpdate]);
 
+    const blockUser = (id) =>{
+        axios.get(`/api/admin/block/${id}`).then(res => {
+            if (res.data.success === true) {
+                swal("Success", res.data.message, "success");
+                setIsUpdate(oldState => !oldState);
+            }
+            
+        });
+
+    }
 
     var display_accounts = "";
+    var display_status ="";
     if (loading) {
         return <h4>Loading Accounts...</h4>
     }
     else {
         display_accounts = accounts.map((item) => {
+            if(item.status){
+                display_status = (
+                    <div className="p-2 flex-fill bd-highlight text-right"><button onClick={()=>blockUser(item.id)} className='btn btn-success btn-sm' /></div>
+                )
+            }else{
+                display_status = (
+                    <div className="p-2 flex-fill bd-highlight text-right"><button onClick={()=>blockUser(item.id)} className='btn btn-danger btn-sm' /></div>
+                )
+            }
+            
 
             return (
                 <tr key={item.id}>
-                    <td>{item.id}</td>
-                    <td>{item.username}</td>
-                    <td>{item.name}</td>
-                    <td>{item.phone}</td>
-                    <td>{item.email}</td>
-                    <td>
-                        {item.enable? "Đã kích hoạt" : "Chưa kích hoạt"}
+                    <td className='center-format'><Link to='/admin/profile' className="btn btn-success btn-sm">{item.id}</Link></td>
+                    <td className='text-format'>{item.username}</td>
+                    <td className='text-format'>{item.name}</td>
+                    <td className='text-format'>{item.phone}</td>
+                    <td className='text-format'>{item.email}</td>
+                    <td className='text-format'>
+                        {item.enable ? "Đã kích hoạt" : "Chưa kích hoạt"}
                     </td>
-                    <td>
-                        {item.status? "Hoạt động" : "Block"}
-                    </td>
-                    <td>
-                        <Link to={`view-order/${item.id}`} className="btn btn-success btn-sm">View</Link>
+                    <td className='text-format'>
+                        <div class="d-flex flex-row bd-highlight">
+                            <div class="p-2 flex-fill bd-highlight">{item.status ? "Hoạt động" : "Block"}</div>
+                            {display_status}
+                        </div>
                     </td>
                 </tr>
             )
         });
+
     }
 
     return (
@@ -61,16 +79,16 @@ function Profile() {
                 </div>
                 <div className="card-body">
                     <div className="table-responsive">
-                        <table className="table table-bordered table-striped">
+                        <table className="table table-bordered table-striped table-hover">
                             <thead>
-                                <tr>
-                                    <th>ID</th>
+                                <tr style={{ backgroundColor: "black", color: "white" }}>
+                                    <th className='center-format' style={{ width: "6%" }}>ID</th>
                                     <th>Tài khoản</th>
                                     <th>Tên</th>
                                     <th>Số điện thoại</th>
                                     <th>Email</th>
                                     <th>Kích hoạt email</th>
-                                    <th>Trạng thái</th>
+                                    <th className='center-format' style={{ width: "12%" }}>Trạng thái</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -81,6 +99,7 @@ function Profile() {
                 </div>
             </div>
         </div>
+
     )
 }
 

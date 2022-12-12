@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import swal from 'sweetalert';
+import { numberFormat } from '../../../configs/constants';
 
 function AddProduct() {
     const [categorylist, setCategorylist] = useState([]);

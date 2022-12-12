@@ -59,12 +59,14 @@ function ViewCategory() {
         categorylist.map( (item) => {
             return (
                 <tr key={item.id}>
-                    <td>{item.id}</td>
-                    <td>{item.name}</td>
-                    <td>
+                    <td className='center-format'><Link to={`edit-category/${item.id}`} className="btn btn-success btn-sm">{item.id}</Link></td>
+                    <td className='text-format'>{item.name}</td>
+                    {/* <td>{item.id}</td>
+                    <td>{item.name}</td> */}
+                    {/* <td>
                         <Link to={`edit-category/${item.id}`} className="btn btn-success btn-sm">Sửa</Link>
                     </td>
-                    {/* <td>
+                    <td>
                         <button type="button" onClick={ (e) => deleteCategory(e, item.id) } className="btn btn-danger btn-sm">Xóa</button>
                     </td> */}
                 </tr>
@@ -81,14 +83,19 @@ function ViewCategory() {
                     </h4>
                 </div>
                 <div className="card-body">
-                    <table className="table table-bordered table-striped">
+                    <table className="table table-bordered table-striped table-hover">
                         <thead>
-                            <tr>
+                            <tr style={{backgroundColor: "black", color: "white"}}>
+                                <th className='center-format' style={{width: "10%"}}>ID</th>
+                                <th>Name</th>
+                            </tr>
+
+                            {/* <tr>
                                 <th>ID</th>
                                 <th>Name</th>
                                 <th>Edit</th>
-                                {/* <th>Delete</th> */}
-                            </tr>
+                                <th>Delete</th>
+                            </tr> */}
                         </thead>
                         <tbody>
                             {viewcategory_HTMLTABLE}

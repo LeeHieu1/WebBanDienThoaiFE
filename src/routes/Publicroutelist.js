@@ -15,6 +15,9 @@ import DashBoard from "../components/frontend/DashBoard";
 import BookDetail from "../components/frontend/book/BookDetail";
 import Order from "../components/frontend/Orders";
 import OrderDetail from "../components/frontend/OrderDetails";
+import Verify from '../components/frontend/auth/Verify';
+import ForgotPassword from '../components/frontend/auth/ForgotPassword';
+import ChangePassword from '../components/frontend/auth/ChangePassword';
 import { Redirect } from "react-router-dom";
 
 const publicRoutesList = [
@@ -25,38 +28,15 @@ const publicRoutesList = [
   { path: "/404", exact: true, name: "Page404", component: Page404 },
   { path: "/login", exact: true, name: "Login", component: Login },
   { path: "/register", exact: true, name: "Register", component: Register },
-  {
-    path: "/books/:id",
-    exact: true,
-    name: "BookDetail",
-    component: BookDetail,
-  },
+  { path: '/verify', exact: true, name: 'Verify', component: Verify },
+  { path: '/forgot_password', exact: true, name: 'ForgotPassword', component: ForgotPassword },
+  { path: '/change_password', exact: true, name: 'ChangePassword', component: ChangePassword },
+  { path: "/books/:id", exact: true, name: "BookDetail", component: BookDetail },
   { path: "/orders", exact: true, name: "BookDetail", component: Order },
-  {
-    path: "/orders/:id",
-    exact: true,
-    name: "BookDetail",
-    component: OrderDetail,
-  },
-
-  {
-    path: "/collections",
-    exact: true,
-    name: "ViewCategory",
-    component: ViewCategory,
-  },
-  {
-    path: "/collections/:slug",
-    exact: true,
-    name: "ViewProduct",
-    component: ViewProduct,
-  },
-  {
-    path: "/collections/:category/:product",
-    exact: true,
-    name: "ProductDetail",
-    component: ProductDetail,
-  },
+  { path: "/orders/:id", exact: true, name: "BookDetail", component: OrderDetail },
+  { path: "/collections", exact: true, name: "ViewCategory", component: ViewCategory },
+  { path: "/collections/:slug", exact: true, name: "ViewProduct", component: ViewProduct },
+  { path: "/collections/:category/:product", exact: true, name: "ProductDetail", component: ProductDetail },
   { path: "/cart", exact: true, name: "Cart", component: Cart },
   { path: "/checkout", exact: true, name: "Checkout", component: Checkout },
   { path: "/thank-you", exact: true, name: "Thankyou", component: Thankyou },

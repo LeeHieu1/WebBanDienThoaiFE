@@ -3,6 +3,7 @@ import {Switch, Route, Redirect} from 'react-router-dom';
 import '../../assets/admin/css/styles.css';
 import 'bootstrap/dist/js/bootstrap.bundle.js';
 import '../../assets/admin/js/scripts';
+import '../../components/admin/App.css'
 
 import Navbar from './Navbar';
 import Sidebar from './Sidebar';
