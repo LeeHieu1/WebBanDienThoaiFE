@@ -51,8 +51,8 @@ function Category() {
 
             <div className="card mt-4">
                 <div className="card-header">
-                    <h4>Thêm thể loại
-                        <Link to="/admin/view-category" className="btn btn-primary btn-sm float-end">Tất cả thể loại</Link>
+                    <h4>Thêm hãng điện thoại
+                        <Link to="/admin/view-category" className="btn btn-primary btn-sm float-end">Tất cả hãng điện thoại</Link>
                     </h4>
                 </div>
                 <div className="card-body">
@@ -68,7 +68,7 @@ function Category() {
                         </ul> */}
                         <div className="tab-content" id="myTabContent">
                             <div className="form-group mb-3">
-                                <label>Tên thể loại</label>
+                                <label>Tên hãng điện thoại</label>
                                 <input type="text" name="name" onChange={handleInput} value={categoryInput.name} className="form-control" />
                             </div>
                         </div>

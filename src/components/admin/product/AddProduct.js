@@ -22,7 +22,7 @@ function AddProduct() {
     }
 
     const handleImage = (e) => {
-        setPicture({ img: e.target.files[0] });
+        setPicture(e.target.files[0]);
     }
 
     useEffect(() => {
@@ -32,6 +32,7 @@ function AddProduct() {
             if (isMounted) {
                 if (res.data.success === true) {
                     setCategorylist(res.data.datas);
+                    setProduct({ ...productInput, id_category: res.data.datas[0].id })
                 }
             }
         });
@@ -51,7 +52,7 @@ function AddProduct() {
         formData.append('authorname', productInput.authorname);
         formData.append('price', productInput.price);
         formData.append('description', productInput.description);
-        formData.append('img', picture.image);
+        formData.append('img', picture);
 
         axios.post(`/api/admin/insert_book`, formData).then(res => {
             if (res.data.success === true) {
@@ -80,7 +81,7 @@ function AddProduct() {
         <div className="container-fluid px-4">
             <div className="card mt-4">
                 <div className="card-header">
-                    <h4>Thêm sách
+                    <h4>Thêm điện thoại
                         <Link to="/admin/view-product" className="btn btn-primary btn-sm float-end">Xem sản phẩm</Link>
                     </h4>
                 </div>
@@ -88,12 +89,12 @@ function AddProduct() {
                     <form onSubmit={submitProduct} encType="multipart/form-data">
                         <div className="tab-content" id="myTabContent">
                             <div className="form-group mb-3">
-                                <label>Chọn thể loại</label>
                                 <select name="id_category" onChange={handleInput} value={productInput.id_category} className="form-control">
                                     {
                                         categorylist.map((item) => {
+
                                             return (
-                                                <option value={item.id} key={item.id}>{item.name}</option>
+                                                <option value={item.id} key={item.id} >{item.name}</option>
                                             )
                                         })
                                     }
@@ -101,7 +102,7 @@ function AddProduct() {
                                 <small className="text-danger">{errorlist.id_category}</small>
                             </div>
                             <div className="form-group mb-3">
-                                <label>Tên sách</label>
+                                <label>Tên điện thoại</label>
                                 <input type="text" name="name" onChange={handleInput} value={productInput.name} className="form-control" />
                                 <small className="text-danger">{errorlist.name}</small>
                             </div>
@@ -109,19 +110,19 @@ function AddProduct() {
                                 <label>Mô tả</label>
                                 <textarea name="description" onChange={handleInput} value={productInput.description} className="form-control"></textarea>
                             </div>
-                            <div className="form-group mb-3">
+                            {/* <div className="form-group mb-3">
                                 <label>Tác giả</label>
                                 <input name="authorname" onChange={handleInput} value={productInput.authorname} className="form-control"></input>
-                            </div>
+                            </div> */}
                             <div className="form-group mb-3">
                                 <label>Giá</label>
                                 <input name="price" type="number" onChange={handleInput} value={productInput.price} className="form-control"></input>
                             </div>
                             <div className="form-group mb-3">
                                 <label>Hình ảnh</label>
-                                <input type="file" name="img" onChange={handleImage} className="form-control" />
+                                <input type="file" name="img" onChange={handleImage} accept="image/*" className="form-control" />
                             </div>
-                        
+
                         </div>
                         <button type="submit" className="btn btn-primary px-4 mt-2">Submit</button>
 

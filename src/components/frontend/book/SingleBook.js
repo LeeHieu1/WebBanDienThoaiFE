@@ -25,7 +25,7 @@ const SingleBook = ({ book }) => {
     history.push(`/books/${book.id}`);
   };
   return (
-    <Card style={{ width: "20%", margin: "5px 10px 5px 10px " }}>
+    <Card style={{ width: "25%", margin: "5px 10px 5px 10px " }}>
       <Card.Img
         variant="top"
         src={book.image}

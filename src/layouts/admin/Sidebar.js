@@ -8,25 +8,25 @@ const Sidebar = () => {
                 <div className="nav">
                     <Link className="nav-link collapsed" to="#" data-bs-toggle="collapse" data-bs-target="#collapseCategory" aria-expanded="false" aria-controls="collapseProduct">
                         <div className="sb-nav-link-icon"><i className="fas fa-columns"></i></div>
-                        Thể loại
+                        Hãng điện thoại
                         <div className="sb-sidenav-collapse-arrow"><i className="fas fa-angle-down"></i></div>
                     </Link>
                     <div className="collapse" id="collapseCategory" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                         <nav className="sb-sidenav-menu-nested nav">
-                        <Link className="nav-link" to="/admin/add-category">Thêm thể loại</Link>
-                        <Link className="nav-link" to="/admin/view-category">Quản lý thể loại</Link>
+                        <Link className="nav-link" to="/admin/add-category">Thêm hãng</Link>
+                        <Link className="nav-link" to="/admin/view-category">Quản lý hãng</Link>
                         </nav>
                     </div>
 
                     <Link className="nav-link collapsed" to="#" data-bs-toggle="collapse" data-bs-target="#collapseProduct" aria-expanded="false" aria-controls="collapseProduct">
                         <div className="sb-nav-link-icon"><i className="fas fa-columns"></i></div>
-                        Sách
+                        Điện thoại
                         <div className="sb-sidenav-collapse-arrow"><i className="fas fa-angle-down"></i></div>
                     </Link>
                     <div className="collapse" id="collapseProduct" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                         <nav className="sb-sidenav-menu-nested nav">
-                            <Link className="nav-link" to="/admin/add-product">Thêm sách</Link>
-                            <Link className="nav-link" to="/admin/view-product">Quản lý sách</Link>
+                            <Link className="nav-link" to="/admin/add-product">Thêm điện thoại</Link>
+                            <Link className="nav-link" to="/admin/view-product">Quản lý điện thoại</Link>
                         </nav>
                     </div>
 

@@ -27,11 +27,12 @@ function OrderDetail(props) {
     }, [props.match.params.id, history, isUpdate]);
 
     const changeStatus = (id) =>{
-        axios.get(`/api/admin/order/change_status/${id}`).then(res => {
+        
+        axios.get(`/api/admin/order/${id}`).then(res => {
             if (res.data.success === true) {
                 swal("Success", res.data.message, "success");
                 setIsUpdate(oldState => !oldState);
-                history.push('/admin')
+               // history.push('/admin/dashboard')
             }else{
                 swal("Warning", res.data.message, "warning");
             }

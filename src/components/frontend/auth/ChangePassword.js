@@ -53,7 +53,7 @@ function ChangePassword() {
                     <div className="col-md-6">
                         <div className="card">
                             <div className="card-header">
-                                <h4 className='text-center'>Quên mật khẩu</h4>
+                                <h4 className='text-center'>Thay đổi mật khẩu</h4>
                             </div>
                             <div className="card-body">
                                 <form onSubmit={mailSubmit}>

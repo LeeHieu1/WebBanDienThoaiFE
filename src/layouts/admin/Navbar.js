@@ -17,7 +17,7 @@ const Navbar = () => {
     return (
         <nav className="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <div className='container-fluid'>
-                <Link className="navbar-brand ps-3" to="/admin">Website Book</Link>
+                <Link className="navbar-brand ps-3" to="/admin">Website Phone</Link>
                 <ul className="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
                     <li className="nav-item dropdown">
                         <Link to="/#" className="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">

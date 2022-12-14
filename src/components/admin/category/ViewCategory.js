@@ -78,8 +78,8 @@ function ViewCategory() {
         <div className="container px-4">
             <div className="card mt-4">
                 <div className="card-header">
-                    <h4>Thể loại 
-                        <Link to="/admin/add-category" className="btn btn-primary btn-sm float-end">Thêm thể loại</Link>
+                    <h4>Hãng điện thoại
+                        <Link to="/admin/add-category" className="btn btn-primary btn-sm float-end">Thêm hãng điện thoại</Link>
                     </h4>
                 </div>
                 <div className="card-body">

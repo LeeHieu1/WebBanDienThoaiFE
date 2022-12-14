@@ -40,7 +40,7 @@ function ViewProduct() {
                     </td>
                     <td className='text-format'>{item.category.name}</td>
                     <td className='text-format'>{item.name}</td>
-                    <td className='text-format'>{item.authorname}</td>
+                    {/* <td className='text-format'>{item.authorname}</td> */}
                     <td className='center-format'><img src={`${APP_BASE_URL}/images/${item.image}`} width="50px" alt={item.name} /></td>
                     <td className='center-format'>{numberFormat(item.price)}</td>
                     <td className='text-format'>{item.description}</td>
@@ -64,9 +64,9 @@ function ViewProduct() {
                             <thead>
                                 <tr style={{backgroundColor: "black", color: "white"}}>
                                     <th className='center-format' style={{width: "6%"}}>ID</th>
-                                    <th style={{width: "12%"}}>Thể loại</th>
+                                    <th style={{width: "12%"}}>Thương hiệu</th>
                                     <th style={{width: "20%"}}>Tên sách</th>
-                                    <th style={{width: "15%"}}>Tác giả</th>
+                                    {/* <th style={{width: "15%"}}>Tác giả</th> */}
                                     <th className='center-format' style={{width: "7%"}}>Hình ảnh</th>
                                     <th className='center-format' style={{width: "7%"}}>Giá</th>
                                     <th>Mô tả</th>
